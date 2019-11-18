@@ -16,7 +16,7 @@
 
     This version is built to more closely resemble the NES than
     the original Pong machines or the Atari 2600 in terms of
-    resolution, though in widescreen (16:9) so it looks nicer on 
+    resolution, though in widescreen (16:9) so it looks nicer on
     modern systems.
 ]]
 
@@ -30,7 +30,7 @@ function love.load()
     love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {
         fullscreen = false,
         resizable = false,
-        vsync = true
+        vsync = true  -- "vertical sync" syncs to the monitor's refresh rate
     })
 end
 
@@ -38,10 +38,11 @@ end
     Called after update by LÖVE2D, used to draw anything to the screen, updated or otherwise.
 ]]
 function love.draw()
+    defaultTextHeight = 12
     love.graphics.printf(
         'Hello Pong!',          -- text to render
         0,                      -- starting X (0 since we're going to center it based on width)
-        WINDOW_HEIGHT / 2 - 6,  -- starting Y (halfway down the screen)
+        (WINDOW_HEIGHT - defaultTextHeight) / 2,  -- starting Y (halfway down the screen)
         WINDOW_WIDTH,           -- number of pixels to center within (the entire screen here)
         'center')               -- alignment mode, can be 'center', 'left', or 'right'
 end
